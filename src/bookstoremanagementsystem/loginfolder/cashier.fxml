@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="mainTabpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstoremanagementsystem.loginfolder.LoginCashierController">
+   <tabs>
+      <Tab text="Sale">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="saleTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="417.0" prefWidth="1024.0">
+                     <columns>
+                        <TableColumn fx:id="saleISBN" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="ISBN" />
+                        <TableColumn fx:id="saleDate" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="DATE" />
+                        <TableColumn fx:id="saleAmount" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="AMOUNT" />
+                        <TableColumn fx:id="saleTotalPrice" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="TOTAL PRICE" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXTextField fx:id="saleTextISBN" labelFloat="true" layoutX="14.0" layoutY="472.0" promptText="ISBN" />
+                  <JFXTextField fx:id="saleTextAmount" labelFloat="true" layoutX="192.0" layoutY="472.0" promptText="Amount" />
+                  <JFXButton fx:id="saleAddButton" layoutX="362.0" layoutY="471.0" onAction="#saleAddHandle" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: black;" text="ADD" />
+                  <JFXButton fx:id="saleSaleButton" layoutX="485.0" layoutY="471.0" onAction="#saleButtonHandle" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: black;" text="Sale" />
+                  <Label fx:id="saleLabelText" alignment="CENTER" layoutX="17.0" layoutY="537.0" prefHeight="17.0" prefWidth="331.0" />
+                  <JFXButton fx:id="saleSaleButton1" layoutX="598.0" layoutY="471.0" onAction="#clearButtonHandle" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: black;" text="CLEAR" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Rent">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <DatePicker fx:id="startingDate" layoutX="60.0" layoutY="536.0" />
+                  <DatePicker fx:id="endDate" layoutX="289.0" layoutY="536.0" />
+                  <Label layoutX="67.0" layoutY="503.0" prefHeight="17.0" prefWidth="90.0" text="Starting Date" />
+                  <Label layoutX="286.0" layoutY="503.0" prefHeight="17.0" prefWidth="74.0" text="End Date" />
+                  <JFXButton layoutX="512.0" layoutY="579.0" onAction="#rentAddHandle" prefHeight="29.0" prefWidth="141.0" style="-fx-border-color: black;" text="ADD" />
+                  <JFXTextField fx:id="rentISBNText" labelFloat="true" layoutX="57.0" layoutY="580.0" prefHeight="27.0" prefWidth="199.0" promptText="ISBN" />
+                  <JFXTextField fx:id="rentCustomerText" labelFloat="true" layoutX="286.0" layoutY="580.0" prefHeight="27.0" prefWidth="199.0" promptText="Customer ID" />
+                  <TableView fx:id="rentTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="425.0" prefWidth="1024.0">
+                     <columns>
+                        <TableColumn fx:id="rentCustomerID" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="CUSTOMER ID" />
+                        <TableColumn fx:id="rentISBN" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="ISBN" />
+                        <TableColumn fx:id="rentStartingDate" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="STARTING DATE" />
+                        <TableColumn fx:id="rentEndDate" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="END DATE" />
+                        <TableColumn fx:id="rentPrice" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="PRICE" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXButton layoutX="688.0" layoutY="579.0" onAction="#rentButtonHandle" prefHeight="29.0" prefWidth="141.0" style="-fx-border-color: black;" text="RENT" />
+                  <JFXButton layoutX="854.0" layoutY="579.0" onAction="#clearRentButtonHandle" prefHeight="29.0" prefWidth="141.0" style="-fx-border-color: black;" text="CLEAR" />
+                  <Label fx:id="rentLabelText" alignment="CENTER" layoutX="67.0" layoutY="468.0" prefHeight="17.0" prefWidth="421.0" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Income">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <DatePicker fx:id="incomeStart" layoutX="243.0" layoutY="234.0" />
+                  <DatePicker fx:id="incomeEnd" layoutX="463.0" layoutY="234.0" />
+                  <Label layoutX="243.0" layoutY="206.0" prefHeight="17.0" prefWidth="90.0" text="Starting Date" />
+                  <Label layoutX="463.0" layoutY="206.0" prefHeight="17.0" prefWidth="74.0" text="End Date" />
+                  <Label fx:id="incomeLabel" alignment="CENTER" layoutX="241.0" layoutY="64.0" prefHeight="98.0" prefWidth="617.0" text="INCOME">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="incomeSearch" layoutX="715.0" layoutY="233.0" onAction="#incomeSearchHandle" prefHeight="29.0" prefWidth="141.0" style="-fx-border-color: black;" text="SEARCH" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Customer">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="customerTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="417.0" prefWidth="1024.0">
+                     <columns>
+                        <TableColumn fx:id="customerID" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="ID" />
+                        <TableColumn fx:id="customerName" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="NAME" />
+                        <TableColumn fx:id="customerSurname" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="SURNAME" />
+                        <TableColumn fx:id="customerEmail" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="E-MAIL" />
+                        <TableColumn fx:id="customerPhone" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="PHONE " />
+                        <TableColumn fx:id="customerIdentity" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="IDENTITY NO" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXTextField fx:id="cusID" labelFloat="true" layoutX="10.0" layoutY="474.0" prefWidth="155.0" promptText="ID">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="cusName" labelFloat="true" layoutX="179.0" layoutY="474.0" prefWidth="155.0" promptText="Name">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="cusSurname" labelFloat="true" layoutX="352.0" layoutY="474.0" prefWidth="155.0" promptText="Surname">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="cusPhone" labelFloat="true" layoutX="699.0" layoutY="474.0" prefWidth="155.0" promptText="Phone">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="cusEmail" labelFloat="true" layoutX="521.0" layoutY="474.0" prefWidth="155.0" promptText="E-mail">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="cusIdNo" labelFloat="true" layoutX="860.0" layoutY="474.0" prefWidth="155.0" promptText="Identity no">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXButton fx:id="cusAddButton" layoutX="923.0" layoutY="514.0" onAction="#customerAddHandle" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: black;" text="ADD" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Search">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="searchTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="417.0" prefWidth="1024.0">
+                     <columns>
+                        <TableColumn fx:id="sTableISBN" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="ISBN" />
+                        <TableColumn fx:id="sTableName" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="NAME" />
+                        <TableColumn fx:id="sTableAuthor" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="AUTHOR" />
+                        <TableColumn fx:id="sTablePublisher" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="PUBLISHER" />
+                        <TableColumn fx:id="sTablePrice" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="PRICE" />
+                        <TableColumn fx:id="sTablePages" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="PAGES" />
+                        <TableColumn fx:id="sTableLang" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="LANG." />
+                        <TableColumn fx:id="sTableCategory" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="CATEGORY" />
+                        <TableColumn fx:id="sTableSupplier" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="SUPPLIER" />
+                        <TableColumn fx:id="sTableQuantity" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="QUANTITY" />
+                        <TableColumn fx:id="sTableRentQuantity" maxWidth="500.0" minWidth="25.0" prefWidth="102.4" text="RENT QUANTITY" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <VBox layoutX="-3.0" layoutY="440.0" prefHeight="143.0" prefWidth="793.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXRadioButton fx:id="radioISBN" style="-jfx-selected-color: blue;" text="ISBN">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="group" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="radioName" layoutX="10.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="NAME" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioAuthor" layoutX="126.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="AUTHOR" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioPublisher" layoutX="242.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="PUBLISHER" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioPrice" layoutX="358.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="PRICE" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioPages" layoutX="474.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="PAGES" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioLang" layoutX="443.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="LANG." toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioCategory" layoutX="526.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="CAT." toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioSupplier" layoutX="609.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="SUPPLIER" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioQuantity" layoutX="717.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="QUANTITY" toggleGroup="$group" />
+                              <JFXRadioButton fx:id="radioRentQuantity" layoutX="819.0" layoutY="10.0" style="-jfx-selected-color: blue;" text="R.QUANTITY" toggleGroup="$group" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextField fx:id="searchText" labelFloat="true" prefHeight="27.0" prefWidth="183.0" promptText="Search">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXButton fx:id="sSearch" onAction="#searchHandle" prefHeight="29.0" prefWidth="145.0" style="-fx-border-color: black;" text="SEARCH">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="sSearchAll" onAction="#SearchAllhandle" prefHeight="29.0" prefWidth="145.0" style="-fx-border-color: black;" text=" ALL">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="searchExample" alignment="CENTER" layoutX="228.0" layoutY="574.0" prefHeight="95.0" prefWidth="514.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
